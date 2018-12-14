@@ -18,7 +18,7 @@ const Card = (props) => {
               {emoji.getUnicode(props.emoji)}
               </p>)}
 
-          <button type="button" className="card__delete"></button>
+          <button type="button" className="card__delete">X</button>
         </section>
       </div>
     )
