@@ -3,6 +3,7 @@ import './App.css';
 import Board from './components/Board';
 
 class App extends Component {
+
   render() {
     return (
       <section>
