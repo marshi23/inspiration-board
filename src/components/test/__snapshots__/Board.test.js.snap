@@ -4,9 +4,8 @@ exports[`Board test it matches and exisiting snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Board
-    emoji="heart_eyes"
-    id={1}
-    text="hello there"
+    boardName="maryam"
+    url="https://inspiration-board.herokuapp.com/boards/"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -21,12 +20,60 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [],
+      "children": Array [
+        <section
+          className="errorMessages"
+        >
+          
+        </section>,
+        <section>
+          <NewCardForm
+            addCardCallback={[Function]}
+          />
+        </section>,
+        Array [],
+      ],
       "className": "board",
     },
     "ref": null,
-    "rendered": Array [],
-    "type": "div",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "errorMessages",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "section",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NewCardForm
+            addCardCallback={[Function]}
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "addCardCallback": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "section",
+      },
+    ],
+    "type": "section",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -34,12 +81,60 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
+        "children": Array [
+          <section
+            className="errorMessages"
+          >
+            
+          </section>,
+          <section>
+            <NewCardForm
+              addCardCallback={[Function]}
+            />
+          </section>,
+          Array [],
+        ],
         "className": "board",
       },
       "ref": null,
-      "rendered": Array [],
-      "type": "div",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "errorMessages",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "section",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NewCardForm
+              addCardCallback={[Function]}
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "addCardCallback": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "section",
+        },
+      ],
+      "type": "section",
     },
   ],
   Symbol(enzyme.__options__): Object {

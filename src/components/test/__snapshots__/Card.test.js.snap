@@ -3,7 +3,12 @@
 exports[`Card test it matches and exisiting snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Card />,
+  Symbol(enzyme.__unrendered__): <Card
+    deleteCardCallback={[Function]}
+    emoji="heart_eyes"
+    id={1}
+    text="hello there"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -22,9 +27,17 @@ ShallowWrapper {
       >
         <p
           className="card__content-text"
-        />
+        >
+          hello there
+        </p>
+        <p
+          className="card__content-emoji"
+        >
+          😍
+        </p>
         <button
           className="card__delete"
+          onClick={[Function]}
           type="button"
         >
           X
@@ -41,10 +54,17 @@ ShallowWrapper {
         "children": Array [
           <p
             className="card__content-text"
-          />,
-          undefined,
+          >
+            hello there
+          </p>,
+          <p
+            className="card__content-emoji"
+          >
+            😍
+          </p>,
           <button
             className="card__delete"
+            onClick={[Function]}
             type="button"
           >
             X
@@ -59,14 +79,25 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "hello there",
             "className": "card__content-text",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "hello there",
           "type": "p",
         },
-        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "😍",
+            "className": "card__content-emoji",
+          },
+          "ref": null,
+          "rendered": "😍",
+          "type": "p",
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -74,6 +105,7 @@ ShallowWrapper {
           "props": Object {
             "children": "X",
             "className": "card__delete",
+            "onClick": [Function],
             "type": "button",
           },
           "ref": null,
@@ -96,9 +128,17 @@ ShallowWrapper {
         >
           <p
             className="card__content-text"
-          />
+          >
+            hello there
+          </p>
+          <p
+            className="card__content-emoji"
+          >
+            😍
+          </p>
           <button
             className="card__delete"
+            onClick={[Function]}
             type="button"
           >
             X
@@ -115,10 +155,17 @@ ShallowWrapper {
           "children": Array [
             <p
               className="card__content-text"
-            />,
-            undefined,
+            >
+              hello there
+            </p>,
+            <p
+              className="card__content-emoji"
+            >
+              😍
+            </p>,
             <button
               className="card__delete"
+              onClick={[Function]}
               type="button"
             >
               X
@@ -133,14 +180,25 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "hello there",
               "className": "card__content-text",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "hello there",
             "type": "p",
           },
-          undefined,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "😍",
+              "className": "card__content-emoji",
+            },
+            "ref": null,
+            "rendered": "😍",
+            "type": "p",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -148,6 +206,7 @@ ShallowWrapper {
             "props": Object {
               "children": "X",
               "className": "card__delete",
+              "onClick": [Function],
               "type": "button",
             },
             "ref": null,

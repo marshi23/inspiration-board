@@ -10,6 +10,7 @@ describe('Card', () => {
         id={1}
         text="hello there"
         emoji="heart_eyes"
+        deleteCardCallback={() => {}}
       />);
 
       expect(wrapper).toMatchSnapshot();
