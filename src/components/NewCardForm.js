@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import emoji from 'emoji-dictionary';
+// import emoji from 'emoji-dictionary';
 import './NewCardForm.css';
 
 const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"]
@@ -32,43 +32,37 @@ class NewCardForm extends Component {
   }
 
   onNewCardSubmit = (event) => {
-    console('tried to submit from - form')
     event.preventDefault();
-
-    // const { text, emoji } = this.state;
-    // if (text === '' || emoji === '') return;
 
     this.props.addCardCallback(this.state);
     this.resetState();
-
   }
-
-  printEmojiOptions = () => {
-    const list = EMOJI_LIST.map((emoji) => {
-      return <option>{emoji}</option>
-    })
-    return list
-  }
-
 
   render() {
+
+    const emojiOptions = EMOJI_LIST.map((emoji, index) => {
+        return <option key={index} value={emoji}>{emoji}</option>
+      })
+
     return (
-      <form className="new-card-form" onSubmit={this.onNewCardSubmit}>
-      <header className="form-header">Add inspiration Card</header>
+      <form className="" onSubmit={this.onNewCardSubmit}>
+      <header className="form-header">Add Inspiration Card</header>
 
       <div>
-      <label className="form-label" htmlFor="text"></label>
+      <label className="" htmlFor="text">Text</label>
       </div>
-      <textarea className="form-textarea" placeholder="Text" name="text" onChange={this.onFormChange} value={this.state.text}></textarea>
+      <textarea className="" placeholder="Text" name="text" onChange={this.onFormChange} value={this.state.text}></textarea>
 
       <div>
-      <label className="form-label">Emoji</label>
+      <label className="">Emoji</label>
       </div>
-      <select className="form-select">
-        {this.printEmojiOptions()}
+      <select name="emoji" onChange={this.onFormChange} className="">
+         {emojiOptions}
       </select>
 
-      <input className="form-button" type="submit" value="Add Card"/>
+      <section>
+        <input className="form-button" type="submit" value="Add Card"/>
+      </section>
       </form>
     );
   }

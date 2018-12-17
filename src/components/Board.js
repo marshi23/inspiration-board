@@ -6,7 +6,7 @@ import axios from 'axios';
 import './Board.css';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
-import CARD_DATA from '../data/card-data.json';
+// import CARD_DATA from '../data/card-data.json';
 
 
 class Board extends Component {
@@ -15,7 +15,7 @@ class Board extends Component {
 
     this.state = {
       cards: [],
-      otherCardsList: []
+      errors: undefined,
     }
   };
 
@@ -33,12 +33,16 @@ class Board extends Component {
 
       this.setState({
         cards: cards,
-        otherCardsList: cards
       });
     })
 
-    .catch(() => {
-      console.log('where to catch errors')
+    .catch((error) => {
+      let { errors } = this.state
+      errors.push(error.message)
+
+      this.setState({
+        errors: errors
+      })
     })
   }
 
@@ -74,36 +78,37 @@ class Board extends Component {
     const url = 'https://inspiration-board.herokuapp.com/cards/'
     axios.delete(url + cardId)
     .then((response) => {
-      let deletedCard = response.data.card
-      console.log(`${deletedCard.text} has been deleted`)
-    })
-    .catch((error) => {
+      // let deletedCard = response.data.card
 
       this.setState({
-        errorMessage: `Failure to delete card: ${error.messsage}`,
+        errorMessage: `Card Deleted`,
+      })
+    })
+    .catch((error) => {
+      let { errors } = this.state
+      errors.push(error.message)
+
+      this.setState({
+        errors: errors
       })
     })
   }
 
   addCard = (newCard) => {
-    console.log('I made it to addCard')
-    const apiPayload = {
-      ...newCard
-    }
 
+    const apiPayload = `text=${newCard.text}&emoji=${newCard.emoji}`
 
-    axios.post(this.props.url+this.props.boardName+'/cards', apiPayload)
+    axios.post(this.props.url+this.props.boardName+'/cards?' + apiPayload)
     .then((response) => {
 
       let { cards } = this.state;
-      const myNewCard = response.data.card;
-      apiPayload.text = myNewCard.text
-      apiPayload.emoji = myNewCard.emoji
+      const newCard = response.data.card;
 
-      cards.push(myNewCard)
+      cards.push(newCard)
 
       this.setState({
-        cards: cards
+        cards: cards,
+        errorMessage: `Card Added`
       });
     })
     .catch((error) => {
@@ -116,10 +121,15 @@ class Board extends Component {
   render() {
 
     return (
-      <div className="board">
-      <section><NewCardForm addCardCallback={this.addCard}/></section>
+      <section className="board">
+      <section className="errorMessages">
+        {this.state.errors ? `${this.state.errors}` : ""}
+      </section>
+      <section>
+      <NewCardForm addCardCallback={this.addCard}/>
+      </section>
       {this.displayCards()}
-      </div>
+      </section>
     )
   }
 
